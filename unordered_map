@@ -1,0 +1,48 @@
+unordered_map is a container class in C++ that provides a hash-based implementation of the map data structure.
+It is defined in the <unordered_map> header file in the C++ Standard Library.
+
+unordered_map is similar to map, but with some key differences. While map orders its elements by their keys and stores them in a binary tree, unordered_map uses a hash table to store and retrieve its elements. This makes unordered_map faster for lookups, insertions, and deletions in most cases, but it does not preserve the order of elements.
+
+The syntax to create an unordered_map is as follows:
+/////////////////c++////////////////////
+#include <unordered_map>
+using namespace std;
+
+unordered_map<string, int> myMap;
+/////////////////c++////////////////////
+
+This creates an empty unordered_map that maps string keys to int values, named myMap.
+
+unordered_map provides several member functions for adding, removing, and searching for elements, including:
+
+insert(): Adds an element to the map
+erase(): Removes an element from the map
+clear(): Removes all elements from the map
+find(): Searches for an element in the map by its key
+operator[]: Accesses an element in the map by its key, and creates the element if it does not exist yet
+size(): Returns the number of elements in the map
+
+/////////////////c++////////////////////
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+  unordered_map<string, int> scores = {{"Alice", 90}, {"Bob", 80}, {"Charlie", 70}};
+
+  scores["Dave"] = 75;
+  scores.erase("Charlie");
+
+  cout << "Alice's score is " << scores["Alice"] << "." << endl;
+  if (scores.find("Bob") != scores.end()) {
+    cout << "Bob's score is " << scores["Bob"] << "." << endl;
+  } else {
+    cout << "Bob is not in the map." << endl;
+  }
+
+  return 0;
+}
+/////////////////c++////////////////////
+
+
+
