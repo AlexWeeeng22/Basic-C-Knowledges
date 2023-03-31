@@ -1,0 +1,53 @@
+The key difference between unordered_set and unordered_map in C++ is the data they store and how they store it. 
+unordered_set stores unique elements, while unordered_map stores key-value pairs. 
+Both containers are implemented as hash tables, which provide fast lookups, insertions, and deletions, but do not maintain any specific order of elements.
+
+Here are some key differences between unordered_set and unordered_map:
+
+·Data stored: unordered_set stores only keys (i.e., unique elements), while unordered_map stores key-value pairs.
+·Access: In unordered_set, elements are accessed through their values, while in unordered_map, elements are accessed through their keys.
+·Insertion: In unordered_set, elements are inserted as unique values, while in unordered_map, elements are inserted as key-value pairs.
+·Erasure: In unordered_set, elements can be erased by value, while in unordered_map, elements can be erased by key.
+·Usage: unordered_set is used when you need to store unique elements, and do not care about their order, 
+  while unordered_map is used when you need to store key-value pairs, and do not care about their order.
+·Here's an example to illustrate the difference between unordered_set and unordered_map:
+
+
+
+//////////////c++////////////////
+
+#include <iostream>
+#include <unordered_set>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+  // Example using unordered_set
+  unordered_set<int> mySet = {1, 2, 3, 4, 5};
+  if (mySet.find(3) != mySet.end()) {
+    cout << "3 is in the set." << endl;
+  }
+
+  // Example using unordered_map
+  unordered_map<string, int> myMap = {{"Alice", 90}, {"Bob", 80}, {"Charlie", 70}};
+  if (myMap.find("Bob") != myMap.end()) {
+    cout << "Bob's score is " << myMap["Bob"] << "." << endl;
+  }
+
+  return 0;
+}
+
+//////////////c++////////////////
+
+In this example, unordered_set is used to store a set of integers and check if the value 3 is in the set. 
+unordered_map is used to store a mapping of string keys to integer values, and check the score of the key "Bob".
+
+
+
+
+
+
+
+
+
+
