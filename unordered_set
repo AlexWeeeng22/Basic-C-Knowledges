@@ -1,0 +1,81 @@
+unordered_set uses a hash table to store and retrieve its elements. 
+This makes unordered_set faster for lookups, insertions, and deletions in most cases, but it does not preserve the order of elements.
+
+hwo to create a unordered_set in c++?
+
+
+//////////////c++///////////////
+#include <unordered_set>
+using namespace std;
+unordered_set<int> mySet;
+//////////////c++///////////////
+
+
+This creates an empty unordered_set of integers named mySet.
+
+unordered_set provides several member functions for adding, removing, and searching for elements, including:
+
+insert(): Adds an element to the set
+erase(): Removes an element from the set
+clear(): Removes all elements from the set
+find(): Searches for an element in the set
+size(): Returns the number of elements in the set
+
+
+//////////////c++///////////////
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+
+int main() {
+  unordered_set<string> words = {"apple", "banana", "cherry", "banana"};
+
+  cout << "The set contains " << words.size() << " elements:" << endl;
+  for (const string& word : words) {
+    cout << "  " << word << endl;
+  }
+
+  if (words.find("banana") != words.end()) {
+    cout << "The set contains 'banana'." << endl;
+  } else {
+    cout << "The set does not contain 'banana'." << endl;
+  }
+
+  return 0;
+}
+//////////////c++///////////////
+
+Leetcode 128 Longest Consecutive Sequence
+
+//////////////c++///////////////
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> q;
+        for (int i = 0; i < nums.size(); i++) {
+            q.insert(nums[i]);
+        }
+        int ans = 0;
+        while (!q.empty()) {
+            int now = *q.begin();
+            q.erase(now);
+            int l = now - 1, r = now + 1;
+            while (q.find(l) != q.end()) {
+                q.erase(l);
+                l--;
+            }
+            while(q.find(r) != q.end()) {
+                q.erase(r);
+                r++;
+            }
+            l = l + 1, r = r - 1;
+            ans = max(ans, r - l + 1);
+        }
+        return ans;
+    }
+};
+//////////////c++///////////////
+
+
+
+
