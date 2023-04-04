@@ -1,0 +1,21 @@
+#include <iostream>
+#include <sstream> 
+using namespace std;
+
+int main()
+{
+	string str = "dog cat banana apple";
+	stringstream s(str);
+
+	string word;
+	while(s >> word) 
+	{
+		cout<<word<<' ';
+	}
+    return 0;
+}
+
+
+注意，这样子取出来的s不支持用s[i]这样的形式查看
+
+>>dog cat banana apple 
